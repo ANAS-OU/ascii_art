@@ -13,6 +13,7 @@ import (
 */
 
 func Gathering(input, content string, line int) string {
+	//testing this commit
 	standard := strings.Split(content, "\n")[1:]
 	var slc []string
 	for _, c := range input {
