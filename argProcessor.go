@@ -2,8 +2,31 @@ package ascii_art
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
+
+/**
+  A function that gather the equivilant
+  of the input from the file
+  Return : string
+*/
+
+func Gathering(input, content string, line int) string {
+	standard := strings.Split(content, "\n")[1:]
+	var slc []string
+	for _, c := range input {
+		if c >= ' ' && c <= '~' {
+			j := int(c-' ')*9 + line
+			slc = append(slc, standard[j])
+		} else {
+			fmt.Println("Error : input is invalid")
+			os.Exit(1)
+		}
+	}
+	result := strings.Join(slc, "")
+	return result + "\n"
+}
 
 func ArgProcessor(arg, content string) {
 	const artCharHeight = 8
