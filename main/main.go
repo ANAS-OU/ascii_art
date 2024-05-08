@@ -16,7 +16,7 @@ func main() {
 
 	// Case of multiple arguments
 	if len(os.Args) != 2 {
-		fmt.Println("Error, Please enter one argument")
+		fmt.Println("Error, Please enter one argument")//testing
 		os.Exit(1)
 	}
 	arg := os.Args[1]
