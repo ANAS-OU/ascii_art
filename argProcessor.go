@@ -2,6 +2,8 @@ package ascii_art
 
 import (
 	"fmt"
+	"io"
+	"log"
 	"os"
 	"strings"
 )
@@ -26,13 +28,27 @@ func Gathering(input, content string, line int) string {
 		}
 	}
 	result := strings.Join(slc, "")
-	return result + "\n"
+	return result
 }
 
-func ArgProcessor(arg, content string) {
+func ArgProcessor(arg string, templatePath string) string {
+	// Declaration
+	// const templatePath = "/txt/standard.txt"
 	const artCharHeight = 8
 
-	output := ""
+	fp, err := os.Open(templatePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Close the file at the end.
+	defer fp.Close()
+	content, err := io.ReadAll(fp)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	output := []string{}
 	argWords := strings.Split(arg, "\\n")
 	count := 0
 	// Count the empty strings (\n\n)
@@ -49,17 +65,17 @@ func ArgProcessor(arg, content string) {
 		for i := 0; i < count-1; i++ {
 			fmt.Println()
 		}
-		return
+		return ""
 	}
 
 	for i := 0; i < len(argWords); i++ {
 		if argWords[i] == "" {
-			output += "\n"
+			output = append(output, "\n")
 			continue
 		}
 		for line := 0; line < artCharHeight && argWords[i] != ""; line++ {
-			output += Gathering(argWords[i], content, line)
+			output = append(output, Gathering(argWords[i], string(content), line))
 		}
 	}
-	fmt.Print(output)
+	return strings.Join(output, "\n")
 }

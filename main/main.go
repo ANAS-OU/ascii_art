@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io"
-	"log"
 	"os"
 
 	"ascii_art"
@@ -11,12 +9,10 @@ import (
 
 // this function called ascii art
 func main() {
-	// Declaration
-	const template = "../txt/standard.txt"
-
+	const templatePath = "../txt/standard.txt"
 	// Case of multiple arguments
 	if len(os.Args) != 2 {
-		fmt.Println("Error, Please enter one argument")//testing
+		fmt.Println("Error, Please enter one argument")
 		os.Exit(1)
 	}
 	arg := os.Args[1]
@@ -26,15 +22,5 @@ func main() {
 		return
 	}
 
-	fp, err := os.Open(template)
-	if err != nil {
-		log.Fatal(err)
-	}
-	// Close the file at the end.
-	defer fp.Close()
-	content, err := io.ReadAll(fp)
-	if err != nil {
-		log.Fatal(err)
-	}
-	ascii_art.ArgProcessor(arg, string(content))
+	fmt.Print(ascii_art.ArgProcessor(arg, templatePath))
 }
