@@ -28,7 +28,7 @@ func Gathering(input, content string, line int) string {
 		}
 	}
 	result := strings.Join(slc, "")
-	return result
+	return result + "\n"
 }
 
 func ArgProcessor(arg string, templatePath string) string {
@@ -48,7 +48,7 @@ func ArgProcessor(arg string, templatePath string) string {
 		log.Fatal(err)
 	}
 
-	output := []string{}
+	output := ""
 	argWords := strings.Split(arg, "\\n")
 	count := 0
 	// Count the empty strings (\n\n)
@@ -70,12 +70,12 @@ func ArgProcessor(arg string, templatePath string) string {
 
 	for i := 0; i < len(argWords); i++ {
 		if argWords[i] == "" {
-			output = append(output, "\n")
+			output += "\n"
 			continue
 		}
 		for line := 0; line < artCharHeight && argWords[i] != ""; line++ {
-			output = append(output, Gathering(argWords[i], string(content), line))
+			output += Gathering(argWords[i], string(content), line)
 		}
 	}
-	return strings.Join(output, "\n")
+	return output
 }

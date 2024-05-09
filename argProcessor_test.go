@@ -25,7 +25,7 @@ func getExpectedOutput(test_ID int) string {
 	contentList := strings.Split(string(content), "\n")
 	begin := test_ID * (artCharHeight + 1)
 	end := begin + artCharHeight
-	return strings.Join(contentList[begin:end], "\n")
+	return strings.Join(contentList[begin:end], "\n") + "\n"
 }
 
 func TestLowercase(t *testing.T) {
