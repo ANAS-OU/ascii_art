@@ -18,7 +18,7 @@ func main() {
 	}
 	arg := os.Args[1]
 
-	// The given argument is an empty string.
+	// The given argument is an empty string
 	if len(arg) == 0 {
 		return
 	}

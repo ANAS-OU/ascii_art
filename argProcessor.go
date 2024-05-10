@@ -16,8 +16,9 @@ import (
  */
 
 func Gathering(input, content string, line int) string {
-	//testing this commit
+	// Spliting the content of the standard file in a slice of strings
 	standard := strings.Split(content, "\n")[1:]
+
 	var slc []string
 	for _, c := range input {
 		if c >= ' ' && c <= '~' {
@@ -34,7 +35,6 @@ func Gathering(input, content string, line int) string {
 
 func ArgProcessor(arg string, templatePath string) string {
 	// Declaration
-	// const templatePath = "/txt/standard.txt"
 	const artCharHeight = 8
 
 	fp, err := os.Open(templatePath)
@@ -50,8 +50,8 @@ func ArgProcessor(arg string, templatePath string) string {
 	}
 
 	output := ""
-	argWords := strings.Split(arg, "\\n")
 	count := 0
+	argWords := strings.Split(arg, "\\n")
 
 	// Count the empty strings
 	for i := 0; i < len(argWords); i++ {
