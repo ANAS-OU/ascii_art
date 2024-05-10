@@ -7,9 +7,9 @@ import (
 	"ascii_art"
 )
 
-// this function called ascii art
 func main() {
 	const templatePath = "../txt/standard.txt"
+
 	// Case of multiple arguments
 	if len(os.Args) != 2 {
 		fmt.Println("Error, Please enter one argument")

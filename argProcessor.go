@@ -51,7 +51,8 @@ func ArgProcessor(arg string, templatePath string) string {
 	output := ""
 	argWords := strings.Split(arg, "\\n")
 	count := 0
-	// Count the empty strings (\n\n)
+
+	// Count the empty strings
 	for i := 0; i < len(argWords); i++ {
 		if argWords[i] == "" {
 			count++
