@@ -15,8 +15,8 @@ import (
  * Return : string
  */
 func Gathering(input, content string, line int) string {
-	// Spliting the content of the standard
-	// file in a slice of strings
+	// Spliting the content of the standard file
+	// in a slice of strings
 	standard := strings.Split(content, "\n")[1:]
 
 	var slc []string
