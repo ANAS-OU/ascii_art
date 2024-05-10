@@ -9,10 +9,11 @@ import (
 )
 
 /**
-  A function that gather the equivilant
-  of the input from the file
-  Return : string
-*/
+ * A function that gather the equivilant
+ * of the input from the file
+ *
+ * Return : string
+ */
 
 func Gathering(input, content string, line int) string {
 	//testing this commit
