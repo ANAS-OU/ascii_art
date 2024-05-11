@@ -126,3 +126,9 @@ $
                                        $
 student$
 ```
+
+Contributors
+---
+<a href="https://github.com/anas-ou/ascii_art/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=anas-ou/ascii_art" />
+</a>
