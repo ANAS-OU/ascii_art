@@ -33,6 +33,12 @@ func Gathering(input, content string, line int) string {
 	return result + "\n"
 }
 
+/**
+ * ArgProcessor - A function that takes a string as input and
+ * a template file returns its ascii_art as string.
+ *
+ * Return: the ascii_art (string)
+ */
 func ArgProcessor(arg string, templatePath string) string {
 	// Declaration
 	const artCharHeight = 8
