@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	// Constents Declaration
+	// Constents Declaration.
 	const templatePath = "../txt/standard.txt"
 
 	// Case of multiple arguments
